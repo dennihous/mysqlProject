@@ -9,6 +9,10 @@ const db = mysql.createConnection({
   database:"test"
 })
 
+app.get("/", (req, res) => {
+  res.json("This is the backend")
+})
+
 app.listen(8800, () => {
   console.log("Connected to port 8800")
 })
