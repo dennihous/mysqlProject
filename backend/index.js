@@ -1,13 +1,18 @@
-import express from "express"
-import mysql from "mysql"
+const express = require('express');
+const mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express()
 const db = mysql.createConnection({
   host:"localhost",
   user:"root",
-  password:"",
-  database:"test"
+  password: process.env.PASSWORD,
+  database:"test",
 })
+
+// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY process.env.PASSWORD  
 
 app.get("/", (req, res) => {
   res.json("This is the backend")
