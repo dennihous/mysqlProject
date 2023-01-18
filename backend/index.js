@@ -29,6 +29,12 @@ app.get("/books", (req, res) => {
   })
 })
 
+app.post("/books", (req, res) => {
+  const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)"
+  const values = ["title from backend", "description from backend", "cover from backend"]
+
+})
+
 app.listen(8800, () => {
   console.log("Connected to port 8800")
 })
