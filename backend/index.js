@@ -8,7 +8,7 @@ const app = express()
 const db = mysql.createConnection({
   host:"localhost",
   user:"root",
-  password: process.env.PASSWORD,
+  password: "new_password",
   database:"test",
 })
 
@@ -36,6 +36,8 @@ app.post("/books", (req, res) => {
   db.query(q, [values], (err, data) => {
     if(err){
       return res.json(err)
+    } else {
+      return res.json("Book has been created successfully")
     }
   })
 })
