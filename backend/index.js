@@ -33,6 +33,11 @@ app.post("/books", (req, res) => {
   const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)"
   const values = ["title from backend", "description from backend", "cover from backend"]
 
+  db.query(q, [values], (err, data) => {
+    if(err){
+      return res.json(err)
+    }
+  })
 })
 
 app.listen(8800, () => {
