@@ -1,17 +1,17 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import axios from 'axios'
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const Books = () => {
 
-  const [books, useBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchAllBooks = async () => {
       try{
-        const res = await axios.get("http://localhost:8800/books")
-        console.log(res)
+        const res = await axios.get("http://localhost:8800/books");
+        setBooks(res.data);
       } catch(err){
         console.log(err)
       }
@@ -19,7 +19,19 @@ const Books = () => {
     fetchAllBooks()
   }, [])
   return (
-    <div>Books</div>
+    <div>
+      <h1>Dennis' Book Shop</h1>
+      <div className="books">
+        {books.map(book => {
+          return <div className="book">
+            {book.cover && <img src={book.cover} alt="" />}
+            <h2>{book.title}</h2>
+            <p>{book.description}</p>
+            <span>{book.price}</span>
+          </div>
+        })}
+      </div>
+    </div>
   )
 }
 
