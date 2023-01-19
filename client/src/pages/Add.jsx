@@ -14,6 +14,7 @@ const Add = () => {
       ...prev, [e.target.name]: e.target.value
     }))
   }
+  console.log(book)
 
   return (
     <div className='form' >
@@ -22,6 +23,7 @@ const Add = () => {
       <input type="text" placeholder="description" onChange={handleChange} name="description" />
       <input type="number" placeholder="price" onChange={handleChange} name="price" />
       <input type="text" placeholder="cover" onChange={handleChange} name="cover" />
+      <button onClick={handleClick}>Add</button>
     </div>
   )
 }
