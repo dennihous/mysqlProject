@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import "../style.css"
 
 const Update = () => {
   const [book, setBook] = useState({
@@ -38,7 +39,7 @@ const Update = () => {
       <input type="text" placeholder="description" onChange={handleChange} name="description" />
       <input type="number" placeholder="price" onChange={handleChange} name="price" />
       <input type="text" placeholder="cover" onChange={handleChange} name="cover" />
-      <button onClick={handleClick}>Update</button>
+      <button className='formButton' onClick={handleClick}>Update</button>
     </div>
   )
 }
