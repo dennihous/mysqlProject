@@ -23,7 +23,7 @@ const Books = () => {
       <h1>Dennis' Book Shop</h1>
       <div className="books">
         {books.map(book => {
-          return <div className="book">
+          return <div className="book" key={book.id}>
             {book.cover && <img src={book.cover} alt="" />}
             <h2>{book.title}</h2>
             <p>{book.description}</p>
