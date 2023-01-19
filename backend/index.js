@@ -49,6 +49,19 @@ app.post("/books", (req, res) => {
   })
 })
 
+app.delete("/books/:id", (req, res) => {
+  const boodId = req.params.id
+  const q = "DELETE FROM books WHERE id = ?"
+
+  db.query(q, [bookID], (err, data) => {
+    if(err){
+      return res.json(err)
+    } else {
+      return res.json("Book has been deleted successfully")
+    }
+  })
+})
+
 app.listen(8800, () => {
   console.log("Connected to port 8800")
 })
